@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 class NewsItem(models.Model):
+    """Used to post status updates"""
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=500)

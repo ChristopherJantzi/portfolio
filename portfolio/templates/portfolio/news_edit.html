@@ -1,0 +1,9 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+    <h2>New News Item</h2>
+    <form method="POST" class="news_item-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+    <article class="news_item">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'news_edit' pk=news_item.pk %}">
+                  {% include './icons/pencil-fill.svg' %}
+                </a>
+            {% endif %}
+        </aside>
+        <h2>{{ news_item.title }}</h2>
+        <h3>{{ news_item.subtitle }}</h3>
+        {% if news_item.published_date %}
+            <time class="date">
+                {{ news_item.published_date }}
+            </time>
+        {% endif %}
+        <p>{{ news_item.text|linebreaksbr }}</p>
+    </article>
+{% endblock %}

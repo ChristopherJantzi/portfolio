@@ -1,0 +1,16 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+    {% for thisNews in news %}
+        <article class="news_list">
+            <h2><a href="{% url 'news_detail' pk=thisNews.pk %}">{{ thisNews.title }}</a></h2>
+                <!-- 'news_detail is the name of the view, the function in the views.py file -->
+            <h3>{{ thisNews.subtitle }}</h3>
+            <p>{{ thisNews.text|truncatewords:40|linebreaksbr }}</p>
+                <!-- Can change number of words on display for news feed with "truncatewords" -->
+            <time class="date">
+                published: {{ thisNews.published_date }}
+            </time>
+        </article>
+    {% endfor %}
+{% endblock %}
