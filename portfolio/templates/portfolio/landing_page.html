@@ -1,6 +1,21 @@
 {% extends 'portfolio/base.html' %}
-
+{% load static %}
 {% block content %}
+    <div class="row">
+        <div class="column">
+            <figure>
+                <img src="{% static 'images/Cherenkov-1-small.png' %}" alt="A color swath showing electric aqua (#81F5FD), deep sky blue (#49C4FE), laser blue (#0B5DE4), and french blue (#074190)">
+                <figcaption>The proposed color palette for the site.</figcaption>
+            </figure>
+        </div>
+        <div class="column">
+            <figure>
+                <a href="https://www.iaea.org/newscenter/news/what-is-cherenkov-radiation">
+                    <img src="{% static 'images/nuclear_fuel_cycle_1-small.jpg' %}" alt="An image of Cherenkov radiation from the IAEA website.">
+                </a>
+                <figcaption>An image of Cherenkov radiation from the IAEA website, the basis for the palette.</figcaption>
+            </figure>
+    </div>
     {% for thisNews in news %}
         <article class="news_list">
             <h2><a href="{% url 'news_detail' pk=thisNews.pk %}">{{ thisNews.title }}</a></h2>
