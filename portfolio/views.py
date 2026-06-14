@@ -10,6 +10,12 @@ def landing_page(request):
     news = NewsItem.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'portfolio/landing_page.html', {'news': news})
 
+def resume(request):
+    """Resume
+        Simply displays my resume (temporary page?)
+    """
+    return render(request, 'portfolio/resume.html', {})
+
 def news_detail(request, pk):
     """News - Single Story
         Pulls a specific news item and passes it to a "detail" page
