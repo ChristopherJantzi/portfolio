@@ -23,8 +23,8 @@ From a picture of Cherenkov radiation, first pic on this IAEA page --> (https://
 Can define variables. Global in ":root{}" and local in ":note{}"
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400&display=swap');
 
 :root {
@@ -36,12 +36,20 @@ Can define variables. Global in ":root{}" and local in ":note{}"
     --light2: #49C4FE;
     --dark1: #0B5DE4;
     --dark2: #074190;
-    --hLarge: 'Domine', serif;
-    --hSmall: 'Lora', serif;
-    --tNormal: 'Hind Madurai', sans-serif;
+    --hLarge-font: 'EB Garamond', serif;
+    --hSmall-font: 'Lora', serif;
+    --tNormal-font: 'Hind Madurai', sans-serif;
 }
 
+h1,
+h2 {
+    font-family: var(--hLarge-font);  
+}
 
+h3,
+h4 {
+    font-family: var(--hSmall-font);
+}
 
 .page-header {
     background-color: var(--dark1);
@@ -55,18 +63,9 @@ Can define variables. Global in ":root{}" and local in ":note{}"
 .page-header h1 a:visited,
 .page-header h1 a:active {
     color: var(--white);
+    font-weight: bold;
     font-size: 36pt;
     text-decoration: none;
-}
-
-h1,
-h2 {
-    font-family: var(--hLarge);
-}
-
-h3,
-h4 {
-    font-family: var(--hSmall);
 }
 
 .date {
