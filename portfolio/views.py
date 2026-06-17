@@ -7,7 +7,7 @@ def landing_page(request):
     """News Feed
         Pulls all the news items and passes them to the landing page
     """
-    news = NewsItem.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    news = NewsItem.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'portfolio/landing_page.html', {'news': news})
 
 def resume(request):
