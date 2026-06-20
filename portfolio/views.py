@@ -10,6 +10,12 @@ def landing_page(request):
     news = NewsItem.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'portfolio/landing_page.html', {'news': news})
 
+def article(request):
+    """Article
+        For now, displays the one article . . . 
+    """
+    return render(request, 'portfolio/blog_entries/2026-problem-of-time.html', {})
+
 def resume(request):
     """Resume
         Simply displays my resume (temporary page?)
