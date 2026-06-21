@@ -28,6 +28,11 @@
 
         Need to find way to scale images better.
 
+        IMAGES
+            May want to consider witching things to WEBP or AVIF images
+            PNG and JPG not used as much
+            What about SVG? Only icons?
+
         PAGES
             Need to figure out how to do SEO and add <meta> elements to the tops of pages or whatever
                 I don't seem to show up *anywhere* yet.
@@ -169,3 +174,4 @@ h4 {
     padding: 25px;
     display: inline-block;
 }
+

@@ -1,7 +1,7 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
 {% block content %}
-    <article>
+    <article id="top">
         <h2>The Long Read: How to Study Time</h2>
         <h3>Notes on "Testing the problem of time with cold atoms" by Barontoni, 2026</h3>
         <p>  </p>
@@ -11,63 +11,86 @@
             <li><a href="https://journals.aps.org/prresearch/supplemental/10.1103/1h9j-df4k/Entropic_time_SM.pdf ">APS Journals Supplemental material (PDF)</a></li>
             <li><a href="https://arxiv.org/abs/2509.07745">ArXiV Link to Latest Update (11Jun2026)</a></li>
         </ul>
-        <h4>Background</h4>
-        <p>What is time? We deal with it every day, but it's not easy to define. It's the tick of a watch, it's the rise and fall of the sun, it's the frequency at which your dog needs to go potty. You can use a lot of things to <em>mark</em> time, but defining <em>time</em> itself is harder. It's just there. It's a thing that's outside the world we're observing.</p>
-        
-        <p>That's fine for classical mechanics and quantum mechanics. In classical mechanics, we observe something like a soccer ball at a World Cup match and we can define where it is by how far down the pitch it is (x-axis), how wide it is from the goal (y-axis), and how high it is in the air (z-axis). We can take its position in space at a given time and use <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/mot.html">equations</a> (fig.1a) to predict where it will be later. Quantum mechanics basically works in the same way (just weirder). We observe a particle's position in space (or some other "observable") at a given time and make predictions about where it will be later using another equation (see fig.2a or "Expectation Value Postulate" on <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/qm2.html#c1">this page</a>) Time is a variable. It's a thing outside our observation.</p>
-
-        <p>Relativity is different. Time becomes a coordinate like the three spatial coordinates. This is what we call "spacetime". You can define an object's position by x, y, z, and c*t (speed of light in a vacuum multiplied by time). And here's where we get the <a href= "https://en.wikipedia.org/wiki/Problem_of_time">"Problem of Time"</a>. In relativity, the things in the universe aren't evolving in time, time is just another coordinate. It's a part of the system. Internal rather than external. So, is time a real thing? Can we define it inside our universe? And equally important, does it have to flow one way? Because there is <em>no physical law</em> that says it does!</p>
-        
-        <p>But <em>obviously</em> it does, right? I guess, but while I can run towards the other team's goal, I can move left and right while I do it, and I can kick the ball through the air, I <em>can't reverse time</em>. So, what gives, Relativity? And how do we study time in a lab so we can get to the bottom of this "problem of time"?</p>
-
-        <figure class="image">
-            <img
-                src="{% static 'images/CM_position.png' %}"
-                alt="The equation for 1D position given constant acceleration, inital velocity, intial position, and time."
-            >
-            <figcaption>Fig 1a. For constant acceleration (gravity, in this case) we could find the future position of the ball (in one dimension) for any given moment of time after the ball is kicked (t) if we have the initial position (x_0), initial velocity (v_0) and the acceleration in that direction (vertically, a = g = -32.2 ft/s/s but horizontally, a = 0)</figcaption>
-        </figure>
-
-        <figure class="image">
-            <img
-                src="{% static 'images/QM_position.png' %}"
-                alt="The equation for expectation value of position in qnatum mechanics."
-            >
-            <figcaption>Fig 1b. Things are wierder in quantum mechanics. We don't find the position of an atom, we find a probability it could be in a given state. It's wierd. Let's not get into it for now. </figcaption>
-        </figure>
-
-        <h4>The Setup</h4>
-
-        <p>In this experiment, we're making a stand-in for the universe. <a href= "https://www.youtube.com/watch?v=a7PeVL2bPwk&t=7s">I shall call him . . . Mini-Universe</a>. In any good experiment, we want to limit the number of variables so we can hone in on the reason a particular thing changes. If you want to know why your cupcake keeps disappearing out of the fridge, put the cupcake in the fridge on a day less people are in the office and you have fewer suspects/variables. Changing something about the cupcake could eliminate other variables: <a href= "https://www.youtube.com/watch?v=XqeEaqYRpJc">Philomena's mate Paul</a> would never eat chocolate, so if I make a chocolate cupcake, Paul's not a variable.</p>
-
-        <p>In this paper, our Mini-Universe is a <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/rubbec.html">Bose-Einstein Condensate</a> made only of rubidium-87 atoms. The important thing to know about a BEC (for this article anyway) is the atoms are all in the same energy-state and less energy-states means less variables. Also, while I think it's necessary that a BEC be made of a single type of atom/particle, as a bonus that also further limits variables.</p>
-
-        <p>Next, the setup limits the number of spatial variables. As I said above, our universe has three spatial variables: x, y, and z. This Mini-Universe only worries about one spatial variable, x. It does that by having a "potential barrier" in the middle of the setup. Think of this as a 2D "wall made of light" that the atoms can pass through. This is a broad simplification and hopefully I'll write about this stuff later (namely, techniques in cold-atom trapping, optical dipole potentials, etc). For now, "wall of light" is a good enough analogy. The paper also goes into what happens when the wall is thicker or thinner, but more on that later.</p>
-
-        <p>This wall also lets us separate the Mini-Universe inside the experiment into Dark and Bright sectors. We observe the Bright sector as our stand-in for <em>our</em> universe, but atoms can flow between the two halves when we "start the clock". And when the clock starts, this setup doesn't stay a good representation of our universe for long. Atoms are mostly empty space and heat can seep in, so effects from the larger universe are going to influence the Mini-Universe. Each run of the experiment lasts about 100-120 milliseconds after the BEC is prepared and allowed to evolve. So, we avoid dealing with outside effects by using a super short time-scale.</p>
-
-
-        <h4>Defining Time</h4>
-
-        <p>So, we have a universe, but we still need a clock <em>inside</em> the universe to define time. Remember, relativity says is has to be <em>internal</em> to the universe. Well, let's think about how time works in <em>our</em> universe. Does it need to be constant? Not necessarily. When a thing goes faster, it's time slows down. We call this <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/tdil.html">time dilation</a>. Satellites in orbit experience this and so do astronauts on the ISS. For example, Scott and Mark Kelly are twins <em>and</em> astronauts with Scott being born 6 seconds after Mark. After Scott spent about a year-and-a-half on the ISS, Mark is now 6 seconds plus a few milliseconds older (read more <a href= "https://www.nasa.gov/humans-in-space/nasas-twins-study-results-published-in-science-journal/">here</a>). So, time doesn't have to be constant, BUT . . . it does have to flow one way.</p>
-
-        <p>Well, <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/Therm/entrop.html">entropy</a> does that in our universe. As someone famous (sort of) said, <q cite="https://www.nps.gov/mlkm/learn/quotations.htm">The arch of the universe is long and flows towards chaos.</q> I'm definitely misquoting <a href="https://www.nps.gov/mlkm/learn/quotations.htm">someone</a> here, but the point is entropy only ever increases. So, define time in this Mini-Universe as the flow of entropy. But wait—that reverses in the Mini-Universe because we're only looking at the Bright Sector! Overall (Dark and Bright sector) entropy stays constant, but entropy increases in the Bright Sector as atoms flow in and decreases as they flow out. So, it changes as the number of atoms changes.</p>
-
-        <p>In our universe, the number of particles slash amount of energy is constant. Well, if the entropy changes in the Bright sector and the number of particles changes, that means it's reasonable to look at entropy per particle/atom and here's where we get the basis for our clock: entropic time. <em>That</em> number only ever increases. And check this out: this entropic time bears conceptual similarities to the "thermal time hypothesis", which is a proposed solution to the "problem of time" that says (in part) that time is an "emergent phenomenon", that it comes out naturally from the system.</p>
-
-        <p>Additionally, this Mini-Universe does something cool and consistent with what we think <a href="https://en.wikipedia.org/wiki/Ultimate_fate_of_the_universe">the end of the universe</a> could be like. Depending on how large the barrier is between the Dark (unobserved) and Bright (observed) sectors, the universe "ends" in different ways. For a small barrier, the atoms flow in (and entropy increases), but the flow slows and eventually decreases ever faster until the atoms are out of the universe. This has conceptual similarities to the <a href= "https://en.wikipedia.org/wiki/Big_Bounce">big bounce</a>, where the matter/energy in the universe expands, reaches a peak, then snaps back. We all become a single point of matter/energy and then another Big Bang happens. If the barrier is large, there's no snap back. Entropy and the number of particles become constant and entropic time levels off. This is similar to the <a href= "https://en.wikipedia.org/wiki/Heat_death_of_the_universe">big freeze</a>, where everything is so stretched out that there's no longer temperature differences, so no more energy differences either. Things sort of . . . stop.</p>
-
-        <h4>The Results</h4>
-
-        <p>Well, the biggest thing here is that this paper shows a variable in a Mini-Universe that can be a stand-in for time with all the appropriate characteristics demanded by both relativity and classical/quantum mechanics: it works the way we think it ought to based on what we know about time and how we model it. This paper also develops a Schrodinger equation (similar to the quantum mechanics equation in fig.1b) for this universe. I'll leave understanding that equation as an exercise for the reader (I don't understand it well enough to explain it). The details are in the paper if you're curious.</p>
-
-        <p>The point is one could make <em>observations</em> in the universe and <em>predictions</em> in the universe using a clock that's <em>internal to the universe</em>. They can study time in a lab! Further experiments are needed, of course, but this is a good first step to study time in a way that's consistent with both relativity and quantum mechanics.</p>
-
-        <p>In the future, they could finally answer some of the questions we have about time like, "Why does it flow one way?" or "How does time work in even more complex systems?" Whatever they look into, it’s genuinely fascinating to me that we can study something on the scale of <em>the universe</em> in a <em>lab</em>. So, I look forward to seeing what they get into next. Until next time . . . </p>
-
+        <nav class="nav">
+            <p>
+                <a href="#background" style="text-decoration:none; margin-right:20px; color:black;"><h4> -- Background -- </h4></a>
+                <a href="#setup" style="text-decoration:none; margin-right:20px; color:black;"><h4> -- The Setup -- </h4></a>
+                <a href="#defining_time" style="text-decoration:none; margin-right:20px; color:black;"><h4> -- Defining Time -- </h4></a>
+                <a href="#results" style="text-decoration:none; margin-right:20px; color:black;"><h4> -- The Results -- </h4></a>
+            </p>
+        </nav>
+        <section id="background">
+            <h4>Background</h4><a href="#top" display="style:inline-block;">Top</a>
+            <p>
+                What is time? We deal with it every day, but it's not easy to define. It's the tick of a watch, it's the rise and fall of the sun, it's the frequency at which your dog needs to go potty. You can use a lot of things to <em>mark</em> time, but defining <em>time</em> itself is harder. It's just there. It's a thing that's outside the world we're observing.
+            </p>
+            <p>
+                That's fine for classical mechanics and quantum mechanics. In classical mechanics, we observe something like a soccer ball at a World Cup match and we can define where it is by how far down the pitch it is (x-axis), how wide it is from the goal (y-axis), and how high it is in the air (z-axis). We can take its position in space at a given time and use <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/mot.html">equations</a> (fig.1a) to predict where it will be later. Quantum mechanics basically works in the same way (just weirder). We observe a particle's position in space (or some other "observable") at a given time and make predictions about where it will be later using another equation (see fig.2a or "Expectation Value Postulate" on <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/qm2.html#c1">this page</a>) Time is a variable. It's a thing outside our observation.
+            </p>
+            <p>
+                Relativity is different. Time becomes a coordinate like the three spatial coordinates. This is what we call "spacetime". You can define an object's position by x, y, z, and c*t (speed of light in a vacuum multiplied by time). And here's where we get the <a href= "https://en.wikipedia.org/wiki/Problem_of_time">"Problem of Time"</a>. In relativity, the things in the universe aren't evolving in time, time is just another coordinate. It's a part of the system. Internal rather than external. So, is time a real thing? Can we define it inside our universe? And equally important, does it have to flow one way? Because there is <em>no physical law</em> that says it does!
+            </p>
+            <p>
+                But <em>obviously</em> it does, right? I guess, but while I can run towards the other team's goal, I can move left and right while I do it, and I can kick the ball through the air, I <em>can't reverse time</em>. So, what gives, Relativity? And how do we study time in a lab so we can get to the bottom of this "problem of time"?
+            </p>
+            <figure class="image">
+                <img
+                    src="{% static 'images/CM_position.png' %}"
+                    alt="The equation for 1D position given constant acceleration, inital velocity, intial position, and time."
+                >
+                <figcaption>Fig 1a. For constant acceleration (gravity, in this case) we could find the future position of the ball (in one dimension) for any given moment of time after the ball is kicked (t) if we have the initial position (x_0), initial velocity (v_0) and the acceleration in that direction (vertically, a = g = -32.2 ft/s/s but horizontally, a = 0)</figcaption>
+            </figure>
+            <figure class="image">
+                <img
+                    src="{% static 'images/QM_position.png' %}"
+                    alt="The equation for expectation value of position in qnatum mechanics."
+                >
+                <figcaption>Fig 1b. Things are wierder in quantum mechanics. We don't find the position of an atom, we find a probability it could be in a given state. It's wierd. Let's not get into it for now. </figcaption>
+            </figure>
+        </section>
+        <section id="setup">
+            <h4>The Setup</h4><a href="#top" display="style:inline-block;">Top</a>
+            <p>
+                In this experiment, we're making a stand-in for the universe. <a href= "https://www.youtube.com/watch?v=a7PeVL2bPwk&t=7s">I shall call him . . . Mini-Universe</a>. In any good experiment, we want to limit the number of variables so we can hone in on the reason a particular thing changes. If you want to know why your cupcake keeps disappearing out of the fridge, put the cupcake in the fridge on a day less people are in the office and you have fewer suspects/variables. Changing something about the cupcake could eliminate other variables: <a href= "https://www.youtube.com/watch?v=XqeEaqYRpJc">Philomena's mate Paul</a> would never eat chocolate, so if I make a chocolate cupcake, Paul's not a variable.
+            </p>
+            <p>
+                In this paper, our Mini-Universe is a <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/rubbec.html">Bose-Einstein Condensate</a> made only of rubidium-87 atoms. The important thing to know about a BEC (for this article anyway) is the atoms are all in the same energy-state and less energy-states means less variables. Also, while I think it's necessary that a BEC be made of a single type of atom/particle, as a bonus that also further limits variables.
+            </p>
+            <p>
+                Next, the setup limits the number of spatial variables. As I said above, our universe has three spatial variables: x, y, and z. This Mini-Universe only worries about one spatial variable, x. It does that by having a "potential barrier" in the middle of the setup. Think of this as a 2D "wall made of light" that the atoms can pass through. This is a broad simplification and hopefully I'll write about this stuff later (namely, techniques in cold-atom trapping, optical dipole potentials, etc). For now, "wall of light" is a good enough analogy. The paper also goes into what happens when the wall is thicker or thinner, but more on that later.
+            </p>
+            <p>
+                This wall also lets us separate the Mini-Universe inside the experiment into Dark and Bright sectors. We observe the Bright sector as our stand-in for <em>our</em> universe, but atoms can flow between the two halves when we "start the clock". And when the clock starts, this setup doesn't stay a good representation of our universe for long. Atoms are mostly empty space and heat can seep in, so effects from the larger universe are going to influence the Mini-Universe. Each run of the experiment lasts about 100-120 milliseconds after the BEC is prepared and allowed to evolve. So, we avoid dealing with outside effects by using a super short time-scale.
+            </p>
+        </section>
+        <section id="defining_time">
+            <h4>Defining Time</h4><a href="#top" display="style:inline-block;">Top</a>
+            <p>
+                So, we have a universe, but we still need a clock <em>inside</em> the universe to define time. Remember, relativity says is has to be <em>internal</em> to the universe. Well, let's think about how time works in <em>our</em> universe. Does it need to be constant? Not necessarily. When a thing goes faster, it's time slows down. We call this <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/tdil.html">time dilation</a>. Satellites in orbit experience this and so do astronauts on the ISS. For example, Scott and Mark Kelly are twins <em>and</em> astronauts with Scott being born 6 seconds after Mark. After Scott spent about a year-and-a-half on the ISS, Mark is now 6 seconds plus a few milliseconds older (read more <a href= "https://www.nasa.gov/humans-in-space/nasas-twins-study-results-published-in-science-journal/">here</a>). So, time doesn't have to be constant, BUT . . . it does have to flow one way.
+            </p>
+            <p>
+                Well, <a href= "http://hyperphysics.phy-astr.gsu.edu/hbase/Therm/entrop.html">entropy</a> does that in our universe. As someone famous (sort of) said, <q cite="https://www.nps.gov/mlkm/learn/quotations.htm">The arch of the universe is long and flows towards chaos.</q> I'm definitely misquoting <a href="https://www.nps.gov/mlkm/learn/quotations.htm">someone</a> here, but the point is entropy only ever increases. So, define time in this Mini-Universe as the flow of entropy. But wait—that reverses in the Mini-Universe because we're only looking at the Bright Sector! Overall (Dark and Bright sector) entropy stays constant, but entropy increases in the Bright Sector as atoms flow in and decreases as they flow out. So, it changes as the number of atoms changes.
+            </p>
+            <p>
+                In our universe, the number of particles slash amount of energy is constant. Well, if the entropy changes in the Bright sector and the number of particles changes, that means it's reasonable to look at entropy per particle/atom and here's where we get the basis for our clock: entropic time. <em>That</em> number only ever increases. And check this out: this entropic time bears conceptual similarities to the "thermal time hypothesis", which is a proposed solution to the "problem of time" that says (in part) that time is an "emergent phenomenon", that it comes out naturally from the system.
+            </p>
+            <p>
+                Additionally, this Mini-Universe does something cool and consistent with what we think <a href="https://en.wikipedia.org/wiki/Ultimate_fate_of_the_universe">the end of the universe</a> could be like. Depending on how large the barrier is between the Dark (unobserved) and Bright (observed) sectors, the universe "ends" in different ways. For a small barrier, the atoms flow in (and entropy increases), but the flow slows and eventually decreases ever faster until the atoms are out of the universe. This has conceptual similarities to the <a href= "https://en.wikipedia.org/wiki/Big_Bounce">big bounce</a>, where the matter/energy in the universe expands, reaches a peak, then snaps back. We all become a single point of matter/energy and then another Big Bang happens. If the barrier is large, there's no snap back. Entropy and the number of particles become constant and entropic time levels off. This is similar to the <a href= "https://en.wikipedia.org/wiki/Heat_death_of_the_universe">big freeze</a>, where everything is so stretched out that there's no longer temperature differences, so no more energy differences either. Things sort of . . . stop.
+            </p>
+        </section>
+        <section id="results">
+            <h4 display="style:inline-block;">The Results</h4><a href="#top" display="style:inline-block;">Top</a>
+            <p>
+                Well, the biggest thing here is that this paper shows a variable in a Mini-Universe that can be a stand-in for time with all the appropriate characteristics demanded by both relativity and classical/quantum mechanics: it works the way we think it ought to based on what we know about time and how we model it. This paper also develops a Schrodinger equation (similar to the quantum mechanics equation in fig.1b) for this universe. I'll leave understanding that equation as an exercise for the reader (I don't understand it well enough to explain it). The details are in the paper if you're curious.
+            </p>
+            <p>
+                The point is one could make <em>observations</em> in the universe and <em>predictions</em> in the universe using a clock that's <em>internal to the universe</em>. They can study time in a lab! Further experiments are needed, of course, but this is a good first step to study time in a way that's consistent with both relativity and quantum mechanics.
+            </p>
+            <p>
+                In the future, they could finally answer some of the questions we have about time like, "Why does it flow one way?" or "How does time work in even more complex systems?" Whatever they look into, it’s genuinely fascinating to me that we can study something on the scale of <em>the universe</em> in a <em>lab</em>. So, I look forward to seeing what they get into next. Until next time . . . 
+            </p>
+        </section>
         <p>Your friend in science,</p>
-
         <p>Chris</p>
-
     </article>
 {% endblock %}
