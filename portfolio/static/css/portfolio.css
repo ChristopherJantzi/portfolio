@@ -1,27 +1,48 @@
 /* 
-background-color: #C25100;
+    headers probably white or black depending on background
 
+    From a picture of Cherenkov radiation, first pic on this IAEA page --> (https://www.iaea.org/sites/default/files/nuclear_fuel_cycle_1.jpg)
+        From light to dark:
+        --white:            #ffffff;
+        --electric-aqua:    #81F5FD; --> light1
+        --deep-sky-blue:    #49C4FE; --> light2
+        --neutral-gray:     #828282; --> gray
+        --laser-blue:       #0B5DE4; --> dark1
+        --french-blue:      #074190; --> dark2
+        --black:            #000000;
 
+    Can define variables. Global in ":root{}" and local in ":note{}"
 
+    Improvements for website:
+        Adjust font sizes to work as title, subtitle pairs?
+            h1 for big title on top of page only
+            h2/h4/h6    - still use the font family h1 uses
+            h3/h5       - use the scripted font
+            The fonts in each of these categories (title, subtitle) get progressively smaller
+            Would need to test all these out.
 
-headers probably white or black depending on background
+        Need to go through existing pages (under portfolio folder and sub folders)
+            Some classes are not being used like row, column
+            I can use these to incorporate the spacing and alignment I wanted
+            Also, need to then edit the image class
 
+        Need to find way to scale images better.
 
-From the tutorial
-burnt orange    #c25100
-
-From a picture of Cherenkov radiation, first pic on this IAEA page --> (https://www.iaea.org/sites/default/files/nuclear_fuel_cycle_1.jpg)
-    From light to dark:
-    --white:            #ffffff;
-    --electric-aqua:    #81F5FD; --> light1
-    --deep-sky-blue:    #49C4FE; --> light2
-    --neutral-gray:     #828282; --> gray
-    --laser-blue:       #0B5DE4; --> dark1
-    --french-blue:      #074190; --> dark2
-    --black:            #000000;
-
-Can define variables. Global in ":root{}" and local in ":note{}"
-
+        PAGES
+            Need to figure out how to do SEO and add <meta> elements to the tops of pages or whatever
+                I don't seem to show up *anywhere* yet.
+                Also, look into open graph tages, specfically the importance of ordering (content, property, etc)
+            ARTICLES
+                Want to make new model in Django for articles
+                    If model doesn't work, write a Python script to convert a word doc to an HTML formatted file?
+                Main article page should have 3 sections, each similar ot news feed on landing page
+                    Long articles
+                    Short articles
+                        write one for How To Study Time
+                    The Basics
+                        this will be for simpler concepts I don't wan to write a long article for
+                        Write one for empty space in an atom
+                            Also, link where necessary in long/short articles
 */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
@@ -51,7 +72,8 @@ h4 {
     font-family: var(--hSmall-font);
 }
 
-.page-header {
+.page-header,
+.page-footer {
     background-color: var(--dark1);
     margin-top: 0;
     margin-bottom: 40px;
@@ -78,6 +100,13 @@ h4 {
     font-size: 20pt;
     font-family: var(--tNormal-font);
     text-decoration: none;
+}
+
+
+.page-footer p {
+    color: var(--white);
+    font-size: 10pt;
+    font-family: var(--tNormal-font);    
 }
 
 .date {
