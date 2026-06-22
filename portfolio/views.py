@@ -17,10 +17,16 @@ def article(request):
     return render(request, 'portfolio/blog_entries/2026-problem-of-time.html', {})
 
 def resume(request):
-    """Resume
-        Simply displays my resume (temporary page?)
+    """TEMPORARY PAGE - Resume
+        Simply displays my resume as a picture
     """
     return render(request, 'portfolio/resume.html', {})
+
+def feedback(request):
+    """TEMPORARY PAGE - Feedback
+        Simply displays a quick hello and link to my email for the site
+    """
+    return render(request, 'portfolio/feedback.html', {})
 
 def news_detail(request, pk):
     """News - Single Story
